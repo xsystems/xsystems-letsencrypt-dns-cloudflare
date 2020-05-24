@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir --parents /etc/letsencrypt/full
+
 for DOMAIN in ${LETSENCRYPT_DOMAINS} ; do
   echo "Creating /etc/letsencrypt/full/${DOMAIN}.pem"
   cat /etc/letsencrypt/live/${DOMAIN}/fullchain.pem \

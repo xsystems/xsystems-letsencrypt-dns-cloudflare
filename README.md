@@ -41,7 +41,7 @@ Run [build.sh](build.sh) to build an image of the current codebase state with ta
 When extending the image and wanting to add `deploy`, `post`, or `pre` renewal hooks as explained [here][letsencrypt-renewal-hooks],
 then `COPY` them to the `/renewal-hooks` directory and NOT the `/etc/letsencrypt/renewal-hooks` directory.
 The directory `/etc/letsencrypt` is marked as `VOLUME` in the base image.
-Meaning that at run-time a volume will be mounted at that path and (except for the first) mask all changes made to files copied to that path during build, e.g. renewal hooks.
+Meaning that at run-time a volume will be mounted at that path and (except the first time) mask all changes made to files copied to that path during build, e.g. renewal hooks.
 
 
 ## Release the Image

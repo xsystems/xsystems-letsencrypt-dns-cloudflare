@@ -36,6 +36,14 @@ This is done to facilitate services, like HAProxy, that require the intermediate
 Run [build.sh](build.sh) to build an image of the current codebase state with tag `latest`.
 
 
+## Extend the Image
+
+When extending the image and wanting to add `deploy`, `post`, or `pre` renewal hooks as explained [here][letsencrypt-renewal-hooks],
+then `COPY` them to the `/renewal-hooks` directory and NOT the `/etc/letsencrypt/renewal-hooks` directory.
+The directory `/etc/letsencrypt` is marked as `VOLUME` in the base image.
+Meaning that at run-time a volume will be mounted at that path and (except for the first) mask all changes made to files copied to that path during build, e.g. renewal hooks.
+
+
 ## Release the Image
 
 1. Make sure you are allowed to push to the `xsystems` repository on Docker Hub e.g. by doing: `docker login`
@@ -52,3 +60,4 @@ VERSION=1.3.42 ./release.sh
 
 [certbot-dns-cloudflare]: https://certbot-dns-cloudflare.readthedocs.io/en/stable/ "Documentation of the certbot-dns-cloudflare plugin"
 [letsencrypt-files]: https://certbot.eff.org/docs/using.html#where-are-my-certificates "Files created by Let's Encrypt"
+[letsencrypt-renewal-hooks]: https://certbot.eff.org/docs/using.html#renewing-certificates "Renewal Hooks"

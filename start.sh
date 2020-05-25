@@ -1,5 +1,7 @@
 #!/bin/sh
 
+ln -s -n -f /renewal-hooks /etc/letsencrypt/renewal-hooks
+
 cat << EOF > /etc/letsencrypt/cli.ini
 staging = ${LETSENCRYPT_STAGING:-false}
 
@@ -32,4 +34,4 @@ done
 
 echo "${LETSENCRYPT_RENEWAL_INTERVAL:-0 7,19 * * *} certbot renew" | crontab -
 
-crond -f
+exec crond -f

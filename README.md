@@ -46,10 +46,9 @@ Meaning that at run-time a volume will be mounted at that path and (except the f
 
 ## Release the Image
 
-1. Make sure you are allowed to push to the `xsystems` repository on Docker Hub e.g. by doing: `docker login`
-2. Set the `VERSION` environment variable to the version that needs to be released.
-3. Optionally, set the `COMMIT` environment variable to the hash of the Git commit that needs to be released. It defaults to the latest commit.
-4. Run [release.sh](release.sh).
+1. Set the `VERSION` environment variable to the version that needs to be released.
+2. Optionally, set the `COMMIT` environment variable to the hash of the Git commit that needs to be released. It defaults to the latest commit.
+3. Run [release.sh](release.sh).
 
 Example release statement:
 

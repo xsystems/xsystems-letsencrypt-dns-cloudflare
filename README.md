@@ -28,7 +28,7 @@ All available environment variables are:
 What certificate and key files are created and where is described [in this section  of the Certbot documentation][letsencrypt-files].
 
 In addition a container of this image also creates a file called `/etc/letsencrypt/full/<DOMAIN>.pem` per domain, containing all certificates and the key.
-This is done to facilitate services, like HAProxy, that require the intermediate certificate; certificate; and key, to be in one file.
+This is done to facilitate services, like HAProxy, that require the intermediate certificates; certificate; and key, to be in one file.
 
 
 ## Build the Image
